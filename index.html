@@ -1,19 +1,38 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lodash</title>
 </head>
+
 <body>
-    
+
     <script src="https://unpkg.com/lodash@4.17.4/lodash.js"></script>
     <script>
-        var arr = ['xiaoming', 'limingru', 'zhangfang','zhangfang']
-        var result = _.filter(arr, item => item !== 'zhangfang' )
-        console.log(result)
+
+        // lodash的排序方法可以排数字，也可以排字符串，可以正向也可以反向，但是对数字和字符串正向和反向的结果却是不一样的    
+
+        var arr02 =
+            [
+                { "key": "key4", "value": "a", "createTime": "124596286" },
+                { "key": "key2", "value": "ac", "createTime": "124593216" },
+                { "key": "key5", "value": "ab", "createTime": "124596289" },
+                { "key": "key3", "value": "ce", "createTime": "124596216" },
+                { "key": "key1", "value": "cc", "createTime": "124573216" },
+            ]
+        var arr01 = [1,9,4,10]
+        var result01 = _.sortBy(arr01, item => item % 3)  // [9, 1, 4, 10]
+        console.log(result01)
+        var result02 = _.sortBy((_.sortBy(arr02, item => item.value)), item => -item.value )
+        console.log(result02)
+        console.log(_.sortBy('gica'))
+        console.log(_.sortBy([98,120,33,1,-4,0]))
+ 
     </script>
-    
+
 </body>
+
 </html>
